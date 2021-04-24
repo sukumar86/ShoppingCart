@@ -1,21 +1,16 @@
 package com.shoppingtest;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class shoppingtest {
 
-    @BeforeEach
-    void setUp() {
-       }
 
 
     @Test
     void CartIsEmpty() {
-        // Arrange
-        cart newItem = new cart();
+
         // Act
         boolean actual = cart.isEmpty();
         boolean expected = true;
@@ -23,5 +18,13 @@ public class shoppingtest {
        assertEquals(true, actual);
 
 
+    }
+
+    @Test
+    void SubTotalTest() {
+        cart newItem = new cart();
+        double actual = newItem.addItem("hat", 10.50);
+        actual = newItem.addItem("table", 20.00);
+        assertEquals(30.50, actual);
     }
 }
